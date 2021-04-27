@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Awadh Landmark Reality Pvt. Ltd</title>
+</head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="CSS\style_home.css">
+<style>
+body
+     {
+         font-family: 'Playfair Display', serif;
+         padding: 0px;
+         margin: 0px;
+         background: url('home_bg1.jpg');
+         background-repeat: no-repeat;
+         color:aliceblue;
+         background-size: cover;
+     }
+     * {
+  box-sizing: border-box;
+}
+
+.left {
+  position: absolute;
+  left: 34px;
+  top: 20px;
+  display: inline-block;
+}
+.left img {
+  width: 180px;
+  text-align: center;
+}
+.center {
+  width: 40%;
+  margin: 20px auto;
+  display: block;
+}
+.right {
+  position: absolute;
+  right: 34px;
+  top: 20px;
+  display: inline-block;
+}
+.navbar {
+  display: inline-block;
+}
+.navbar li {
+  font-size: 18px;
+  display: inline-block;
+}
+.navbar li a {
+  color: aliceblue;
+  text-decoration: none;
+  padding: 14px 20px;
+}
+.navbar li a:hover,
+.navbar li a.active {
+  background-color: #1e6091;
+  border-radius: 4px;
+}
+.container {
+  color: antiquewhite;
+  margin: 190px 260px;
+  padding: 2px 12px;
+  width: 70%;
+  border-radius: 2px;
+  font-size: 40px;
+  text-align: center;
+}
+.searchbox {
+  background-color: #003049;
+  border: 2px solid royalblue;
+  opacity: 0.8;
+  text-align: center;
+  border-radius: 100px;
+}
+.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+  font-size: 20px;
+}
+.propertybar {
+  display: inline-block;
+  padding: 5px 30px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+.propertybar li {
+  font-size: 22px;
+  padding-right: 15px;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+}
+.property li a {
+  padding: 4px 20px;
+}
+.propertybar li a:hover,
+.propertybar li a.active {
+  text-decoration: none;
+  color: #003049;
+  background-color: #caf0f8;
+  border-radius: 8px;
+}
+.propertybar li a.inactive {
+  text-decoration: none;
+  color: #83c5be;
+}
+.button {
+  background-color: crimson;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+/*check availibility form*/
+.container_popform {
+  padding: 30px;
+  font-size: 15px;
+}
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: aliceblue;
+  font-size: 35px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  cursor: pointer;
+}
+.selectbox {
+  float: left;
+  width: 500px;
+  size: 80%;
+  margin-top: 6px;
+}
+.col-25 {
+  float: left;
+  width: 30%;
+  margin-top: 6px;
+  font-size: 20px;
+}
+.col-75 {
+  float: left;
+  width: 30%;
+  margin-top: 6px;
+  margin-left: 40px;
+  font-size: 20px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.popform {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 0px;
+}
+.popform {
+  background-color: #006d77;
+  margin: 0% auto 0% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type="submit"] {
+  background-color: crimson;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 100px;
+}
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+/* slider for range */
+.rangeslider {
+  width: 70%;
+  margin-top: 20px;
+  display: inline-block;
+}
+.myslider {
+  -webkit-appearance: none;
+  background: #fcf3cf;
+  width: 50%;
+  height: 20px;
+  opacity: 2;
+}
+.myslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: #34495e;
+  width: 5%;
+  height: 20px;
+}
+
+.myslider:hover {
+  opacity: 1;
+}
+
+/* Images Box  */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+.column img:hover-shadow {
+  transition: 0.3s;
+}
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.overlay {
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  text-align: center;
+}
+.column:hover .overlay {
+  opacity: 1;
+}
+.text {
+  color: #2a9d8f;
+  font-size: 25px;
+  padding: 0px 12px;
+  margin-bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
+/* Side navigation bar*/
+.sidepanel {
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background-color: #003049;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: aliceblue;
+  display: block;
+  transition: 0.3s;
+  align: right;
+}
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+/*footer*/
+.footer_container {
+  background-color: white;
+  font-size: 20px;
+  margin: 0px;
+}
+.footerbar {
+  text-decoration: none;
+  display: block;
+  color: #003049;
+}
+.left_footer {
+  padding: 30px;
+  display: inline-block;
+}
+.left_footer img {
+  width: 180px;
+  height: 150px;
+}
+.mid_footer {
+  padding: 20px;
+  color: #457b9d;
+  display: inline-block;
+  width: 60%;
+  margin-top: 30px;
+  margin-left: 200px;
+}
+.footerbar li {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.footerbar li a {
+  color: #457b9d;
+  text-decoration: none;
+  padding: 0px 4px;
+}
+.footerbar li a:hover,
+.footerbar li a.active {
+  color: #184e77;
+  border-radius: 100px;
+}
+.right_footer {
+  display: inline-block;
+  padding: 20px;
+  color: #457b9d;
+  margin-right: 30px;
+  margin-top: 30px;
+  position: absolute;
+  right: 134px;
+}
+    
+</style>  
+<body>
+    <header class="header">
+        <!--Left box fo logo-->
+        <div class="left">
+            <a href="index.html"><img src="logo.jpeg" alt=""></a>
+            
+        </div>
+        <!--middle box fo navigation-->
+        <!--right box for menu-->
+        <div class="right">
+            <ul class="navbar">
+                <li><a href="#"><i class="material-icons">&#xe7fd;</i>Login</a></li>
+              </ul>
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+            <div id="mySidepanel" class="sidepanel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                <a href="about.html">About</a>
+                <a href="#">Buy in Top Areas</a>
+                <a href="#">Clients</a>
+                <a href="#">Recent Projects</a>
+                <a href="#">Price Trends</a>
+			    <a href="#">Add your Property</a>
+                <a href="#">Join Us</a>
+              </div>
+        </div>
+    </header>
+    <div class="container">
+        Find affordable properties you'll <b><i>LOVE</i></b>
+        <p></p>
+        <div class="searchbox">
+            <ul class="propertybar">
+                <li><a href="#" class="active">BUY</a></li>
+                <li><a href="#" class="inactive">SELL</a></li>
+                <li><a href="#" class="inactive">RENT</a></li>
+                <li><a href="#" class="inactive">PLOT</a></li>
+                <li><a href="#" class="inactive">PG/Co-LIVING</a></li>
+            </ul> 
+            <hr wieght="10px" width="50%">
+            <button class="button"
+                onclick="document.getElementById('id01').style.display='block'"
+                style="width:auto;">Check Availability</button>
+        </div>
+    </div>
+   <span style="font-size:30px; color:#8ECAE6; margin-left: 15px">We have got   <b><i>
+       <span style="font-size:30px; color:#F8EDEB; margin-left: 19px;"><t>properties</t></span></i></b><t></t> for every one</span>
+       <hr width="10%" align="left" margin-left="15px">
+       <br><br>
+    <div class="row">
+        <div class="column">
+            <img src="projects.jpg"alt="Snow" style="width:100%" class="hover-shadow">
+            <div class="text"><div class="overlay">Our Projects</div></div>
+        </div>
+        <div class="column">
+            <img src="readytomove.jpg"alt="Forest" style="width:100%" class="hover-shadow">
+            <div class="text"><div class="overlay">Ready to Move</div></div>
+        </div>
+        <div class="column">
+            <img src="budget.jpg" alt="Mountains" style="width:100%" class="hover-shadow">
+            <div class="text"><div class="overlay">Budget Housing</div></div>
+        </div>
+    </div>
+    <footer class="footer_container">
+        <div class="left_footer">
+          <a href="index.html"><img src="logo.jpeg" /></a>
+        </div>
+        <div class="mid_footer">
+          <b>COMPANY</b>
+          <ul class="footerbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Join us</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+        <div class="right_footer">
+          <b>FOLLOW US</b>
+          <ul class="footerbar">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Youtube</a></li>
+          </ul>
+        </div>
+      </footer>
+    <div id="id01" class="popform">
+        <form class="popup-form-animation"  method="post">
+            <div class="container_popform">
+               <h1>Check Availability</h1> 
+               <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close popform">&times;</span>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="location">Location</label>
+                    </div>
+                    <div class="selectbox">
+                        <select id="country" name="places">
+                            <option value="newDelhi">New Delhi</option>
+                            <option value="UP">Uttar Pradesh</option>
+                            <option value="chandigarh">Chandigarh</option>
+                            <option value="jaipur">Jaipur</option>
+                            <option value="hr">Harayana</option>
+                            <option value="pb">Punjab</option>
+                        </select>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="col-25">
+                        <label for="propType">Property Type</label>
+                    </div>
+                    <div class="selectbox">
+                        <select id="properties" name="pType">
+                            <option value="luxapp">Luxyry Appartments</option>
+                            <option value="multistorey">MultiStoried</option>
+                            <option value="officespace">Office Spaces</option>
+                            <option value="kothi">Kothi</option>
+                            <option value="floors">Floor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="price">Price Range</label>
+                    </div>
+                    <div class="rangeslider">
+                        <input type="range" min="10000" max="5000000" value="50000"
+                                        class="myslider" id="sliderRange">
+                        <p>Value: <span id="demo"></span></p>
+                      </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="propsize">Property Size</label>
+                    </div>
+                
+                    <div class="selectbox">
+                        <select id="propSize" name="psize">
+                            <option value="1">1 BHK</option>
+                            <option value="2">2 BHK</option>
+                            <option value="3">3 BHK</option>
+                            <option value="4">4 BHK</option>
+                            <option value="5">5 BHK</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <h1>Personal Details</h1> 
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">First Name</label>
+                        <input type="text" placeholder="Enter First Name" name="uname" required>
+                        <label for="fname">Phone</label>
+                        <input type="text" placeholder="Enter Phone Number" name="uname" required>
+                    </div>
+                    <div class="col-75">
+                        <label for="lname">Last Name</label>
+                        <input type="text" placeholder="Enter Last Name" name="uname" required>
+                        <label for="fname">Email</label>
+                        <input type="text" placeholder="Enter Email" name="uname" required>
+                    </div>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>  
+    
+
+    <script>
+        // pup up form check availbility
+        var modal = document.getElementById('id01');
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        // side navigation bar
+        function openNav() {
+        document.getElementById("mySidepanel").style.width = "250px";
+        }
+        function closeNav() {
+        document.getElementById("mySidepanel").style.width = "0"; 
+        }
+
+        // slider for price range 
+        var rangeslider = document.getElementById("sliderRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = rangeslider.value;
+        rangeslider.oninput = function() {
+        output.innerHTML = this.value;
+        } 
+        </script>
+
+</body>
+</html>
